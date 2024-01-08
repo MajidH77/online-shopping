@@ -46,7 +46,7 @@ console.log(data);
           </Grid>
           <Grid container spacing={2}>
       {data.category.products.map((product) => (
-        <Grid item xs={12} sm={6} md={4} key={product.id}>
+        <Grid item xs={6} sm={4} md={3} key={product.id}>
           <CardEL {...product} />
         </Grid>
       ))}

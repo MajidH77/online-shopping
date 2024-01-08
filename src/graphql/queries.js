@@ -2,12 +2,15 @@ import { gql } from "@apollo/client";
 
 const GET_PRODUCTS_INFO = gql`
   query {
-    products {
+    products ( last: 100, orderBy: createdAt_ASC){
     id
     name
     price
     slug
     cover {
+      url
+    }
+    covers {
       url
     }
   }
@@ -61,6 +64,9 @@ const GET_PRODUCT_INFO = gql`
     slug
     details{
       html
+    }
+    covers(orderBy: mimeType_ASC) {
+      url
     }
     specifications
     cover {

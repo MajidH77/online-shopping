@@ -14,6 +14,10 @@ import { prefixer } from 'stylis';
 import { CacheProvider } from '@emotion/react';
 import createCache from '@emotion/cache';
 
+import { Provider } from 'react-redux';
+import store from './redux/store';
+
+
 const client = new ApolloClient({
     uri: process.env.REACT_APP_GRAPHCMS_URI,
     cache: new InMemoryCache(),
@@ -30,7 +34,9 @@ root.render(
         <BrowserRouter>
             <CacheProvider value={cacheRtl}>
                 <ThemeProvider theme={theme}>
-                    <App  />
+                    {/* <Provider store={store}> */}
+                         <App  />
+                    {/* </Provider> */}
                 </ThemeProvider>
             </CacheProvider>
         </BrowserRouter>

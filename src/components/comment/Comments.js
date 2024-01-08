@@ -11,7 +11,7 @@ console.log(data);
 
   if (loading) return null;
   return (
-    <Grid
+    <Grid item
     lg={6}
       container
       sx={{
