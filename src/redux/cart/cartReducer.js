@@ -1,21 +1,26 @@
+import { discountCalculator } from "../../helper/functions";
+
 const initialState = {
     selectedItems: [],
     itemsCounter: 0,
     total: 0,
+    totalDiscount: 0,
     checkout: false
 }
 
+
 const sumItems = items => {
     const itemsCounter = items.reduce((total, product) => total + product.quantity, 0);
-    let total = items.reduce((total, product) => total + product.price * product.quantity, 0).toFixed(2);
-    return {itemsCounter, total}
+    let total = items.reduce((total, product) => total + discountCalculator(product.price , product.discount) * product.quantity, 0).toFixed(2);
+    let totalDiscount = items.reduce((totalDiscount,product) => totalDiscount + (product.discount/100 ) * product.price * product.quantity , 0 );
+    return {itemsCounter, total, totalDiscount}
 }
 
 const cartReducer = (state=initialState, action) => {
-    console.log(action.type)
+
     switch(action.type) {
         case "ADD_ITEM":
-            if (!state.selectedItems.find(item => item.id === action.payload.id)) {
+            if (!state.selectedItems.find(item => item.slug === action.payload.slug)) {
                 state.selectedItems.push({
                     ...action.payload,
                     quantity: 1
@@ -56,6 +61,7 @@ const cartReducer = (state=initialState, action) => {
                 selectedItems: [],
                 itemsCounter: 0,
                 total: 0,
+                totalDiscount: 0,
                 checkout: true
             }
         case "CLEAR":
@@ -63,6 +69,7 @@ const cartReducer = (state=initialState, action) => {
                 selectedItems: [],
                 itemsCounter: 0,
                 total: 0,
+                totalDiscount: 0,
                 checkout: false
             }
         default: 

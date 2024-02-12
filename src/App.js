@@ -7,9 +7,10 @@ import AllProducts from './components/product/AllProducts';
 import ScrollToTop from './components/shared/ScrollToTop';
 import ProductPage from './components/product/ProductPage';
 import CategoryPage from './components/category/CategoryPage';
+import AllCategoriesPage from './components/category/AllCategoriesPage';
 import ShopPage from './components/shop/ShopPage';
 import SignUp from './components/SignUp';
-
+import { ToastContainer,Flip } from 'react-toastify';
 
 function App() {
   
@@ -25,7 +26,9 @@ function App() {
         <Route path="/signup" element={<SignUp />} />
         <Route path="/products/:slug" element={<ProductPage />} />
         {/* <Route path="/authors" element={<AllAuthors />} /> */}
+        <Route path="/categories" element={<AllCategoriesPage />} />
         <Route path="/categories/:slug" element={<CategoryPage />} />
+       
       </Routes>
    
 

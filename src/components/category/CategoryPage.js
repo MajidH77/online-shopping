@@ -34,7 +34,7 @@ console.log(data);
       </Grid>
       <Grid container mt={0} >
 
-        <Grid item xs={12} mt={0}>
+        <Grid item xs={12} md={10} mt={0}>
           <Grid item xs={12} padding={2} style={{display:"flex" ,alignItems:"center" , textDecoration:"none" }} >
           <Typography component="h3" variant="h7" fontWeight={500}>
             دسته بندی : 

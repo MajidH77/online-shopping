@@ -14,7 +14,7 @@ function Footer() {
         textAlign="center"
         mt={10}
       >
-        پروژه وبلاگ با GraphQL | کلیه حقوق محفوظ MH7 است.
+        پروژه فروشگاه با GraphQL | کلیه حقوق محفوظ MH7 است.
       </Typography>
     </footer>
   );

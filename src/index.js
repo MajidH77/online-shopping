@@ -17,6 +17,7 @@ import createCache from '@emotion/cache';
 import { Provider } from 'react-redux';
 import store from './redux/store';
 
+import { ToastContainer,Flip } from 'react-toastify';
 
 const client = new ApolloClient({
     uri: process.env.REACT_APP_GRAPHCMS_URI,
@@ -34,9 +35,17 @@ root.render(
         <BrowserRouter>
             <CacheProvider value={cacheRtl}>
                 <ThemeProvider theme={theme}>
-                    {/* <Provider store={store}> */}
+                    <Provider store={store}>
                          <App  />
-                    {/* </Provider> */}
+                         <ToastContainer rtl  
+                         pauseOnHover={false}
+                        transition={Flip}
+                        limit={3}
+                        autoClose={2500}
+                        
+                        // pauseOnFocusLoss={true} 
+                        />
+                    </Provider>
                 </ThemeProvider>
             </CacheProvider>
         </BrowserRouter>

@@ -1,7 +1,7 @@
 import { gql } from "@apollo/client";
 
 const SEND_COMMENT = gql`
-  mutation senComment(
+  mutation sendComment(
     $name: String!
     $email: String!
     $text: String!
@@ -17,6 +17,7 @@ const SEND_COMMENT = gql`
     ) {
       id
     }
+    
   }
 `;
 

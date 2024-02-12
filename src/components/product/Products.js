@@ -1,18 +1,16 @@
-import React ,{ useEffect, useState} from "react";
-
-
+import React from "react";
 import { useQuery } from "@apollo/client";
 import { Grid } from "@mui/material";
 import { GET_PRODUCTS_INFO } from "../../graphql/queries";
 import CardEL from "../shared/CardEL";
 import Loader from "../shared/Loader";
 
+ function  Products()  { 
+  
 
 
-function Products() {
-
-
-  const { loading, data, errors } = useQuery(GET_PRODUCTS_INFO);
+  const { loading, data, errors } =  useQuery(GET_PRODUCTS_INFO);
+  
   if (loading) return <Loader/>;
   if (errors) return <h4>Error...</h4>;
 

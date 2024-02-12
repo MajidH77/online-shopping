@@ -2,7 +2,7 @@ import React, { useState, useEffect } from "react";
 import { Button, Grid, TextField, Typography } from "@mui/material";
 import { useMutation } from "@apollo/client";
 import { SEND_COMMENT } from "../../graphql/mutations";
-import { ToastContainer, toast } from "react-toastify";
+import { toast } from "react-toastify";
 import "react-toastify/dist/ReactToastify.css";
 // import { useParams } from "react-router-dom";
 import { validate } from "./validation";
@@ -11,7 +11,7 @@ import { validate } from "./validation";
 function CommentProduct({ slug }) {
   const [name, setName] = useState("");
   const [email, setEmail] = useState("");
-       const [emailErrors, setEmailErrors] = useState({});
+  const [emailErrors, setEmailErrors] = useState({});
   const [touched, setTouched] = useState({});
   const [text, setText] = useState("");
   const [pressed, setPressed] = useState(false);
@@ -38,14 +38,14 @@ function CommentProduct({ slug }) {
       sendComment();
       setPressed(true);
     } else {
-      toast.warn(" ! اطلاعات صحیح نمیباشد  ", {
+      toast.warn(" اطلاعات صحیح نمیباشد ! ", {
         position: "top-center",
       });
     }
   };
 
   if (data && pressed) {
-    toast.success(".کامنت دریافت شد, منتظر تایید مدیر", {
+    toast.success("کامنت دریافت شد, منتظر تایید مدیر.", {
       position: "top-center",
     });
     setPressed(false);
@@ -119,7 +119,7 @@ function CommentProduct({ slug }) {
           </Button>
         )}
       </Grid>
-      <ToastContainer />
+
     </Grid>
   );
 }
